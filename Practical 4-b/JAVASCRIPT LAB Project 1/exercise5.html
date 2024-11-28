@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #5: Input check</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+
+        .err {
+            color: red;
+            font-size: 0.7em;
+        }
+    </style>
+    <script>
+        /* TODO complete this part */
+        function lengthChecker()
+        {
+            const l=document.getElementById("password1");
+            const erm=document.getElementById("pw1_check");
+
+            console.log(l.value);
+            console.log(erm);
+            if(l.value.length<6 && l.value!="")
+        {
+           erm.textContent="Too short!!"
+    
+        }
+        else{
+            erm.textContent="";
+            
+        }
+          hideSubmit()
+        }
+        function checkPassword(){
+            const l=document.getElementById("password1");
+            const m=document.getElementById("password2");
+            const er=document.getElementById("pw2_check");
+            if(l.value!=m.value && l.value!="")
+        {
+           er.textContent="the two passwords don't match";
+
+        }
+        else{
+            er.textContent="";
+        
+        }
+        hideSubmit();
+        }
+        function hideSubmit()
+        {
+            const sub=document.getElementById("submitBtn");
+            sub.style.visibility="hidden";
+            const erm=document.getElementById("pw1_check");
+            const er=document.getElementById("pw2_check");
+            if(erm.textContent=="" && er.textContent=="")
+        {
+            sub.style.visibility="visible";
+        }
+        else{
+            sub.style.visibility="hidden"
+        }
+        }
+    </script>
+</head>
+<body>
+
+<form name="pw" onsubmit="lengthChecker()">
+    <table>
+        <tr>
+            <td>Password (min 6 characters):</td>
+            <td><input type="password" name="password1" id="password1" size="10" placeholder="Password" oninput="lengthChecker();checkPassword()"></td>
+            <td>
+                <div id="pw1_check" class="err"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Repeat password:</td>
+            <td><input type="password" name="password2" id="password2" size="10" placeholder="Password" oninput="checkPassword();lengthChecker()"></td>
+            <td>
+                <div id="pw2_check" class="err"></div>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Submit" id="submitBtn"/>
+</form>
+
+</body>
+</html>
+

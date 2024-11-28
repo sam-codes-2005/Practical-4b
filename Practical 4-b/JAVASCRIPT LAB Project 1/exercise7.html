@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #7: Simple playlist</title>
+    <link rel="stylesheet" href="exercise7.css">
+    <script>
+        /* TODO this is for you to complete */
+        function createList()
+        {
+            let l=document.createElement("li");
+            const input=document.getElementById("songTextInput").value;
+            l.textContent=input;
+            document.getElementById("playlist").appendChild(l);
+        }
+        // const input=document.getElementById("songTextInput");
+        // console.log(input.value);
+    </script>
+</head>
+<body>
+
+<form>
+    <input type="text" id="songTextInput" size="40" placeholder="Song name">
+    <input type="button" id="addButton" value="Add Song" onclick="createList()">
+</form>
+
+<ul id="playlist">
+    
+</ul>
+
+</body>
+</html>
+
